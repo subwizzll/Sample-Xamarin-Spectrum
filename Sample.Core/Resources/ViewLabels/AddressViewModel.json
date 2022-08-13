@@ -1,0 +1,12 @@
+{
+  "ChangeLabel": "Change",
+  "CancelLabel": "Cancel",
+  "SendLabel": "Send to: ",
+  "ShipLabel": "Ship to: ",
+  "AddressFormat": "{0}, {1}\n{2}, {3}",
+  "CityLabel": "City: ",
+  "StateLabel": "State: ",
+  "ZipLabel": "Zip Code: ",
+  "CountryLabel": "Country: ",
+  "SaveButton": "Save"
+}

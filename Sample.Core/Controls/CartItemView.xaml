@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<controls:BaseContentView xmlns="http://xamarin.com/schemas/2014/forms"
+                          xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                          xmlns:behaviors="clr-namespace:Sample.Core.Framework.Behaviors"
+                          xmlns:controls="clr-namespace:Sample.Core.Controls"
+                          x:Class="Sample.Core.Controls.CartItemView"
+                          x:DataType="controls:CartItemView"
+                          x:Name="this">
+    <StackLayout Spacing="8">
+        <StackLayout Orientation="Horizontal">
+            <controls:ItemDetailView Item="{Binding ItemDetail.Item, Source={x:Reference this}}"
+                                     ImageSize="60"
+                                     WidthRequest="250"/>
+            <StackLayout Orientation="Horizontal"
+                         VerticalOptions="EndAndExpand">
+                <Label Text="{Binding PriceLabel, Source={x:Reference this}}"
+                       HorizontalOptions="EndAndExpand"/>
+                <Label Text="{Binding ItemDetail.TotalPrice, StringFormat='{0:C2}', Source={x:Reference this}}"
+                       Style="{StaticResource Label-Medium-Size20}"/>
+            </StackLayout>
+        </StackLayout>
+        <StackLayout Orientation="Horizontal"
+                     Spacing="8">
+            <StackLayout Orientation="Horizontal">
+                <Label Text="{Binding QuantityLabel, Source={x:Reference this}}"
+                       VerticalOptions="Center"
+                       HorizontalOptions="EndAndExpand"/>
+                <Entry Text="{Binding Quantity, Source={x:Reference this}}"
+                       MaxLength="2"
+                       HorizontalOptions="End">
+                    <Entry.Behaviors>
+                        <behaviors:NumericValidationBehavior />
+                    </Entry.Behaviors>
+                </Entry>
+            </StackLayout>
+            <Button Text="{Binding UpdateCart, Source={x:Reference this}}"
+                    Style="{StaticResource ButtonGray-Medium}"
+                    Command="{Binding UpdateCartCommand, Source={x:Reference this}}"
+                    CommandParameter="{Binding CartCommandParameter, Source={x:Reference this}}"
+                    IsVisible="{Binding QuantityChanged, Source={x:Reference this}}"
+                    IsEnabled="{Binding QuantityChanged, Source={x:Reference this}}"
+                    HorizontalOptions="End"/>
+            <Button Text="{Binding RemoveFromCart, Source={x:Reference this}}"
+                    Style="{StaticResource ButtonGray-Medium}"
+                    Command="{Binding RemoveFromCartCommand, Source={x:Reference this}}"
+                    CommandParameter="{Binding CartCommandParameter, Source={x:Reference this}}"
+                    HorizontalOptions="End"/>
+        </StackLayout>
+    </StackLayout>
+    
+</controls:BaseContentView>

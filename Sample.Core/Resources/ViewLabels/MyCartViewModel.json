@@ -1,0 +1,5 @@
+{
+  "Title": "My cart",
+  "CheckoutButton": "Check out {0} items",
+  "EmptyCartLabel" : "Your cart is empty, items will appear hear."
+}

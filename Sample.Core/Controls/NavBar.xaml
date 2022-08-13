@@ -1,0 +1,43 @@
+<controls:BaseFrame xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:Sample.Core.Controls"
+             xmlns:converters="clr-namespace:Sample.Core.Framework.Converters"
+             x:Class="Sample.Core.Controls.NavBar"
+             x:DataType="controls:NavBar"
+             x:Name="this">
+    <ContentView.Resources>
+        <Grid x:Key="CartButtonView">
+            <ImageButton Source="{Binding QuickActionIcon, Source={x:Reference this}}"
+                         Command="{Binding QuickActionCommand, Source={x:Reference this}}"
+                         Aspect="AspectFill"
+                         Padding="12"/>
+            
+            <controls:NotificationDot Text="{Binding QuickActionLabel, Source={x:Reference this}}"
+                                      Margin="0,6"
+                                      HorizontalOptions="Start"
+                                      VerticalOptions="End"
+                                      IsVisible="{Binding Text,
+                                                          Converter={converters:IsNotNullOrEmptyOrZeroConverter},
+                                                          Source={RelativeSource Self}}"/>
+        </Grid>
+    </ContentView.Resources>  
+    <Grid HeightRequest="56">
+
+        <!-- Navigation Icon -->
+        <ImageButton Source="{Binding NavigationIcon, Source={x:Reference this}}"
+                     Command="{Binding NavigationCommand, Source={x:Reference this}}"
+                     HorizontalOptions="Start"
+                     Padding="16"/>
+
+        <!-- Header -->
+        <Label Text="{Binding Title, Source={x:Reference this}}"
+               HorizontalOptions="Center"
+               Style="{StaticResource Label-Size20}"/>
+
+        <!-- Right Icon -->
+        <ContentView HorizontalOptions="EndAndExpand"
+                     Content="{StaticResource CartButtonView}" 
+                     IsVisible="{Binding IsQuickActionVisible, Source={x:Reference this}}"/>
+    </Grid>
+
+</controls:BaseFrame>

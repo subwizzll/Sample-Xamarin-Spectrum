@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<views:MvxContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+                      xmlns:controls="clr-namespace:Sample.Core.Controls"
+                      xmlns:effects="clr-namespace:Sample.Core.Framework.Effects"
+                      xmlns:taxCalcStore="clr-namespace:Sample.Core.Models.TaxCalcStore"
+                      xmlns:viewModels="clr-namespace:Sample.Core.ViewModels"
+                      xmlns:views="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms"
+                      x:Class="Sample.Core.Views.CheckoutPage"
+                      x:DataType="viewModels:CheckoutViewModel"
+                      x:TypeArguments="viewModels:CheckoutViewModel">
+    <ContentPage.Resources>
+        <Style x:Key="OrderDetailLayoutStyle"
+               TargetType="StackLayout">
+            <Setter Property="Orientation" Value="Horizontal"/>
+            <Setter Property="HorizontalOptions" Value="EndAndExpand"/>
+            <Setter Property="Margin" Value="8,0"/>
+        </Style>
+        <Style x:Key="OrderDetailLabelStyle"
+               TargetType="Label">
+            <Setter Property="HorizontalTextAlignment" Value="End"/>
+            <Setter Property="HorizontalOptions" Value="EndAndExpand"/>
+        </Style>
+        <Style TargetType="Label"
+               Class="OrderSummaryValueLabel">
+            <Setter Property="HorizontalTextAlignment" Value="End"/>
+            <Setter Property="WidthRequest" Value="100"/>
+            <Setter Property="HorizontalOptions" Value="End"/>
+        </Style>
+        
+        <DataTemplate x:Key="NormalTemplate"
+                      x:DataType="taxCalcStore:LineItemDetail">
+            <StackLayout>
+                <StackLayout Orientation="Horizontal"
+                             Padding="16, 8">
+                    <controls:ItemDetailView Item="{Binding Item}" ImageSize="32"/>
+                    <Label Text="{Binding TotalPrice, StringFormat='{0:C2}'}"
+                           Style="{StaticResource Label-Medium-Size20}"/>
+                </StackLayout>
+                <BoxView Margin="8,0"/>
+            </StackLayout>
+        </DataTemplate>
+        
+        <DataTemplate x:Key="LastItemTemplate"
+                      x:DataType="taxCalcStore:LineItemDetail">
+            <StackLayout Orientation="Horizontal"
+                         Padding="16,8">
+                <controls:ItemDetailView Item="{Binding Item}" ImageSize="32"/>
+                <Label Text="{Binding TotalPrice, StringFormat='{0:C2}'}"
+                       Style="{StaticResource Label-Medium-Size20}"/>
+            </StackLayout>
+        </DataTemplate>
+        
+        <DataTemplate x:Key="EmptyTemplate">
+            <StackLayout>
+                <Label Text="{Binding EmptyCartLabel, 
+                                      Source={RelativeSource AncestorType={x:Type viewModels:MyCartViewModel}}}"
+                       HorizontalOptions="Center"
+                       Margin="24"/>
+            </StackLayout>
+        </DataTemplate>
+        
+        <viewModels:MyCartTemplateSelector x:Key="MyCartTemplateSelector"
+                                           NormalTemplate="{StaticResource NormalTemplate}"
+                                           LastItemTemplate="{StaticResource LastItemTemplate}"/>
+    </ContentPage.Resources>
+    
+    <ContentPage.Content>
+        <StackLayout>
+            <controls:NavBar Title="{Binding [Title]}"
+                             NavigationState="Back"
+                             NavigationCommand="{Binding BackCommand}"
+                             HasShadow="False"/>
+            
+            <ActivityIndicator IsVisible="{Binding TaxJarRequestSucceeded, Converter={xct:InvertedBoolConverter}}"
+                               IsRunning="{Binding TaxJarRequestSucceeded, Converter={xct:InvertedBoolConverter}}"/>
+            
+            <StackLayout HeightRequest="0"
+                         IsVisible="{Binding TaxJarRequestSucceeded}">
+                <ScrollView >
+                    <StackLayout Spacing="8">
+                        <CollectionView ItemsSource="{Binding Cart.LineItems}"
+                                        ItemTemplate="{StaticResource MyCartTemplateSelector}"
+                                        EmptyViewTemplate="{StaticResource EmptyTemplate}"
+                                        EmptyView=""/>
+                    </StackLayout>
+                </ScrollView>
+                <controls:BaseFrame VerticalOptions="End"
+                                    effects:SafeAreaInsetEffect.InsetType="Bottom">
+                    <controls:BaseFrame.Effects>
+                        <effects:SafeAreaInsetEffect/>
+                    </controls:BaseFrame.Effects>
+                    <StackLayout Spacing="8"
+                                 Margin="8,0">
+                        <BoxView />
+                        <StackLayout Style="{StaticResource OrderDetailLayoutStyle}">
+                            <Label Text="{Binding ShippingLabel}"
+                                   Style="{StaticResource OrderDetailLabelStyle}"/>
+                            <Label Text="{Binding ShippingValueLabel}"
+                                   Style="{StaticResource Label-Medium-Size20}"
+                                   StyleClass="OrderSummaryValueLabel"/>
+                        </StackLayout>
+                        <StackLayout Style="{StaticResource OrderDetailLayoutStyle}">
+                            <Label Text="{Binding TaxLabel}"
+                                   Style="{StaticResource OrderDetailLabelStyle}"/>
+                            <Label Text="{Binding Cart.CollectedTax, StringFormat='{0:C2}'}"
+                                   Style="{StaticResource Label-Medium-Size20}"
+                                   StyleClass="OrderSummaryValueLabel"/>
+                        </StackLayout>
+                        <StackLayout Style="{StaticResource OrderDetailLayoutStyle}">
+                            <Label Text="{Binding TotalLabel}"
+                                   Style="{StaticResource OrderDetailLabelStyle}"/>
+                            <Label Text="{Binding Cart.TotalPrice, StringFormat='{0:C2}'}"
+                                   Style="{StaticResource Label-Medium-Size20}"
+                                   StyleClass="OrderSummaryValueLabel"/>
+                        </StackLayout>
+                        <BoxView />
+                    </StackLayout>
+                </controls:BaseFrame>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</views:MvxContentPage>

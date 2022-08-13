@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<controls:BaseFrame xmlns="http://xamarin.com/schemas/2014/forms"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                    xmlns:controls="clr-namespace:Sample.Core.Controls"
+                    xmlns:behaviors="clr-namespace:Sample.Core.Framework.Behaviors"
+                    x:Class="Sample.Core.Controls.ShopFrame"
+                    x:DataType="controls:ShopFrame"
+                    x:Name="this">
+    
+        <StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <controls:ItemDetailView Item="{Binding Item, Source={x:Reference this}}"
+                                         HorizontalOptions="Start"
+                                         WidthRequest="300"/>
+        
+                <Label Text="{Binding Item.Price, StringFormat='{0:C2}', Source={x:Reference this}}"
+                       HorizontalTextAlignment="End"
+                       VerticalTextAlignment="Start"
+                       VerticalOptions="StartAndExpand"
+                       HorizontalOptions="EndAndExpand"
+                       Style="{StaticResource Label-Medium-Size20}"/>
+            </StackLayout>
+            
+            <StackLayout Spacing="16" 
+                         Margin="0,24,0,0"
+                         Orientation="Horizontal"
+                         HorizontalOptions="EndAndExpand"
+                         VerticalOptions="EndAndExpand">
+                <StackLayout Orientation="Horizontal"
+                             HorizontalOptions="End">
+                    <Label Text="{Binding QuantityLabel, Source={x:Reference this}}"
+                           VerticalOptions="Center"/>
+                    <Entry Text="{Binding Quantity, Source={x:Reference this}}"
+                           Keyboard="Numeric"
+                           MaxLength="2">
+                        <Entry.Behaviors>
+                            <behaviors:NumericValidationBehavior />
+                        </Entry.Behaviors>
+                    </Entry>
+                </StackLayout>
+                <Button Text="{Binding AddToCart, Source={x:Reference this}}"
+                        Style="{StaticResource Button-Medium}"
+                        Command="{Binding AddToCartCommand, Source={x:Reference this}}"
+                        CommandParameter="{Binding AddToCartCommandParameter, Source={x:Reference this}}"
+                        HorizontalOptions="End"/>
+            </StackLayout>
+        </StackLayout>
+</controls:BaseFrame>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<controls:BaseContentView xmlns="http://xamarin.com/schemas/2014/forms"
+                          xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                          xmlns:controls="clr-namespace:Sample.Core.Controls"
+                          x:Class="Sample.Core.Controls.ItemDetailView"
+                          x:DataType="controls:ItemDetailView"
+                          x:Name="this">
+    <StackLayout Orientation="Horizontal">
+        <Image Aspect="AspectFit"
+               WidthRequest="{Binding ImageSize, Source={x:Reference this}}"
+               VerticalOptions="Center"
+               Source="{Binding Item.Image, Source={x:Reference this}}"/>
+        
+        <StackLayout Spacing="8"
+                     Margin="8,0,0,0"
+                     HorizontalOptions="Start">
+            <Label Text="{Binding Item.Name, Source={x:Reference this}}"
+                   Style="{StaticResource Label-Medium-Size20}"/>
+            <Label Text="{Binding Item.Description, Source={x:Reference this}}"/>
+        </StackLayout>
+    </StackLayout>
+</controls:BaseContentView>

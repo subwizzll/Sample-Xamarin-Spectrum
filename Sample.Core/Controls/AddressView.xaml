@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<controls:BaseContentView xmlns="http://xamarin.com/schemas/2014/forms"
+                          xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                          xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+                          xmlns:behaviors="clr-namespace:Sample.Core.Framework.Behaviors"
+                          xmlns:controls="clr-namespace:Sample.Core.Controls"
+                          xmlns:viewModels="clr-namespace:Sample.Core.ViewModels"
+                          x:Class="Sample.Core.Controls.AddressView"
+                          x:DataType="viewModels:AddressViewModel"
+                          x:Name="this">
+    <ContentView.Resources>
+        <Style TargetType="Label"
+               Class="AddressValueLabel">
+            <Setter Property="IsVisible" Value="{Binding IsEditMode, Converter={xct:InvertedBoolConverter}}"/>
+            <Setter Property="IsEnabled" Value="{Binding IsEditMode, Converter={xct:InvertedBoolConverter}}"/>
+            <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+        </Style>
+        <Style TargetType="Entry"
+               Class="AddressValueEntry">
+            <Setter Property="IsVisible" Value="{Binding IsEditMode}"/>
+            <Setter Property="IsEnabled" Value="{Binding IsEditMode}"/>
+            <Setter Property="WidthRequest" Value="240"/>
+            <Setter Property="HorizontalOptions" Value="EndAndExpand"/>
+        </Style>
+        <Style TargetType="xct:Expander">
+            <Setter Property="IsVisible" Value="{Binding IsEditMode}"/>
+            <Setter Property="IsExpanded" Value="{Binding IsEditMode}"/>
+        </Style>
+    </ContentView.Resources>
+    
+    <StackLayout Spacing="8">
+        <StackLayout Orientation="Horizontal">
+            <Label Text="{Binding AddressTypeLabel}"
+                   WidthRequest="80"
+                   Style="{StaticResource Label-Medium-Size20}"/>
+            <Label Text="{Binding FormattedAddress}"
+                   Margin="8,0"
+                   VerticalOptions="FillAndExpand"
+                   HorizontalOptions="End"
+                   Style="{StaticResource Label-Size20}"
+                   StyleClass="AddressValueLabel"/>
+            <Button Text="{Binding EditAddressButton}"
+                    Style="{StaticResource ButtonGray-Medium}"
+                    Command="{Binding EditAddressCommand}"
+                    HorizontalOptions="EndAndExpand"/>
+        </StackLayout>
+        <xct:Expander>
+            <StackLayout>
+                <BoxView/>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="{Binding CityLabel}"
+                           HorizontalOptions="Start"/>
+                    <Entry Text="{Binding EditAddress.City}"
+                           Style="{StaticResource Entry-Size16}"
+                           StyleClass="AddressValueEntry"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="{Binding StateLabel}"
+                           HorizontalOptions="Start"/>
+                    <Entry Text="{Binding EditAddress.State}"
+                           MaxLength="2"
+                           Style="{StaticResource Entry-Size16}"
+                           StyleClass="AddressValueEntry"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="{Binding ZipLabel}"
+                           HorizontalOptions="Start"/>
+                    <Entry Text="{Binding EditAddress.Zip}"
+                           Style="{StaticResource Entry-Size16}"
+                           StyleClass="AddressValueEntry"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="{Binding CountryLabel}"
+                           HorizontalOptions="Start"/>
+                    <Entry Text="{Binding EditAddress.Country}"
+                           MaxLength="2"
+                           Style="{StaticResource Entry-Size16}"
+                           StyleClass="AddressValueEntry"/>
+                </StackLayout>
+                <Button Text="{Binding SaveButton}"
+                        Command="{Binding SaveAddressCommand}"
+                        HorizontalOptions="FillAndExpand"/>
+            </StackLayout>
+        </xct:Expander>
+    </StackLayout>
+</controls:BaseContentView>

@@ -1,0 +1,1203 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                    xmlns:controls="clr-namespace:Sample.Core.Controls"
+                    xmlns:effects="clr-namespace:Sample.Core.Framework.Effects"
+                    x:Class="Sample.Core.Styles.GlobalStyles">
+    
+    <Style TargetType="ContentPage"
+           ApplyToDerivedTypes="True">
+        <Setter Property="NavigationPage.HasNavigationBar" Value="False"/>
+        <Setter Property="effects:SafeAreaInsetEffect.InsetType" Value="Bottom"/>
+    </Style>
+
+    <Style TargetType="ContentView"
+           ApplyToDerivedTypes="True">
+        <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+        <Setter Property="VerticalOptions" Value="FillAndExpand"/>
+    </Style>
+
+    <Style TargetType="Label">
+        <Setter Property="FontFamily" Value="Roboto-Regular"/>
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="TextColor" Value="Black"/>
+        <Setter Property="LineBreakMode" Value="WordWrap"/>
+        <Setter Property="VerticalTextAlignment" Value="Center"/>
+        <Setter Property="VerticalOptions" Value="Center"/>
+        <Setter Property="HeightRequest" Value="32"/>
+    </Style>
+    
+    <Style TargetType="Entry">
+        <Setter Property="Visual" Value="Base"/>
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="FontFamily" Value="Roboto-Regular"/>
+        <Setter Property="PlaceholderColor" Value="Black"/>
+        <Setter Property="BackgroundColor" Value="LightGray"/>
+        <Setter Property="HorizontalTextAlignment" Value="Center"/>
+        <Setter Property="VerticalTextAlignment" Value="Center"/>
+        <Setter Property="Margin" Value="0, 8"/>
+        <Setter Property="HeightRequest" Value="32"/>
+        <Setter Property="WidthRequest" Value="32"/>
+        <Setter Property="VerticalOptions" Value="Center"/>
+    </Style>
+
+    <Style TargetType="Button">
+        <Setter Property="FontFamily" Value="Roboto-Regular"/>
+        <Setter Property="FontSize" Value="18" />
+        <Setter Property="HeightRequest" Value="48" />
+        <Setter Property="Padding" Value="16,8"/>
+        <Setter Property="HorizontalOptions" Value="Center" />
+        <Setter Property="VerticalOptions" Value="Center" />
+        <Setter Property="BackgroundColor" Value="CornflowerBlue" />
+        <Setter Property="TextColor" Value="White" />
+        <Setter Property="CornerRadius" Value="4" />
+    </Style>
+
+    <Style x:Key="ButtonGray"
+           TargetType="Button">
+        <Setter Property="BackgroundColor" Value="LightGray" />
+        <Setter Property="TextColor" Value="Black" />
+    </Style>
+    
+    <Style TargetType="Image">
+        <Setter Property="HorizontalOptions" Value="Center"/>
+        <Setter Property="VerticalOptions" Value="Center"/>
+    </Style>
+    
+    <Style TargetType="ImageButton">
+        <Setter Property="BackgroundColor" Value="Transparent"/>
+        <Setter Property="HorizontalOptions" Value="Center"/>
+        <Setter Property="VerticalOptions" Value="Center"/>
+    </Style>
+
+    <Style TargetType="StackLayout">
+        <Setter Property="Spacing" Value="0"/>
+        <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+        <Setter Property="VerticalOptions" Value="FillAndExpand"/>
+    </Style>
+        
+    <Style TargetType="Grid">
+        <Setter Property="RowSpacing" Value="0"/>
+        <Setter Property="ColumnSpacing" Value="0"/>
+    </Style>
+    
+    <Style TargetType="Frame"
+           ApplyToDerivedTypes="True">
+        <Setter Property="HasShadow" Value="False"/>
+        <Setter Property="CornerRadius" Value="4"/>
+        <Setter Property="IsClippedToBounds" Value="True"/>
+        <Setter Property="Padding" Value="0"/>
+    </Style>
+    
+    <Style TargetType="BoxView"
+           ApplyToDerivedTypes="True">
+        <Setter Property="BackgroundColor" Value="LightGray"/>
+        <Setter Property="HeightRequest" Value="1.5"/>
+    </Style>
+    
+    <Style TargetType="ActivityIndicator"
+           ApplyToDerivedTypes="True">
+        <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+        <Setter Property="VerticalOptions" Value="FillAndExpand"/>
+    </Style>
+    
+    <Style TargetType="controls:BaseFrame"
+           ApplyToDerivedTypes="True">
+        <Setter Property="Padding" Value="16"/>
+        <Setter Property="CornerRadius" Value="8"/>
+        <Setter Property="HasShadow" Value="True"/>
+    </Style>
+    
+    <!-- FontStyles -->
+        <Style x:Key="Label-Italic" 
+           TargetType="Label">
+        <Setter Property="FontFamily" Value="Roboto-Italic"/>
+    </Style>
+
+    <Style x:Key="Label-Medium" 
+           TargetType="Label">
+        <Setter Property="FontFamily" Value="Roboto-Medium"/>
+    </Style>
+
+    <Style x:Key="Label-MediumItalic" 
+           TargetType="Label">
+        <Setter Property="FontFamily" Value="Roboto-MediumItalic"/>
+    </Style>
+
+    <Style x:Key="Label-Bold" 
+           TargetType="Label">
+        <Setter Property="FontFamily" Value="Roboto-Bold"/>
+    </Style>
+
+    <Style x:Key="Label-BoldItalic" 
+           TargetType="Label">
+        <Setter Property="FontFamily" Value="Roboto-BoldItalic"/>
+    </Style>
+
+    <Style x:Key="Label-Size12" 
+           TargetType="Label">
+        <Setter Property="FontSize" Value="12"/>
+    </Style>
+
+    <Style x:Key="Label-Size16" 
+           TargetType="Label">
+        <Setter Property="FontSize" Value="16"/>
+    </Style>
+
+    <Style x:Key="Label-Size20" 
+           TargetType="Label">
+        <Setter Property="FontSize" Value="20"/>
+    </Style>
+
+    <Style x:Key="Label-Size24" 
+           TargetType="Label">
+        <Setter Property="FontSize" Value="24"/>
+    </Style>
+
+    <Style x:Key="Label-Size32" 
+           TargetType="Label">
+        <Setter Property="FontSize" Value="32"/>
+    </Style>
+
+    <Style x:Key="Label-Size40" 
+           TargetType="Label">
+        <Setter Property="FontSize" Value="40"/>
+    </Style>
+
+    <Style x:Key="Label-Size48" 
+           TargetType="Label">
+        <Setter Property="FontSize" Value="48"/>
+    </Style>
+
+    <Style x:Key="Label-Italic-Size12"
+           BasedOn="{StaticResource Label-Italic}"
+           TargetType="Label">
+        <Setter Property="FontSize" Value="12"/>
+    </Style>
+
+    <Style x:Key="Label-Italic-Size16"
+           BasedOn="{StaticResource Label-Italic}" 
+           TargetType="Label">
+        <Setter Property="FontSize" Value="16"/>
+    </Style>
+
+    <Style x:Key="Label-Italic-Size20"
+           BasedOn="{StaticResource Label-Italic}" 
+           TargetType="Label">
+        <Setter Property="FontSize" Value="20"/>
+    </Style>
+
+    <Style x:Key="Label-Italic-Size24"
+           BasedOn="{StaticResource Label-Italic}" 
+           TargetType="Label">
+        <Setter Property="FontSize" Value="24"/>
+    </Style>
+
+    <Style x:Key="Label-Italic-Size32"
+           BasedOn="{StaticResource Label-Italic}" 
+           TargetType="Label">
+        <Setter Property="FontSize" Value="32"/>
+    </Style>
+
+    <Style x:Key="Label-Italic-Size40"
+           BasedOn="{StaticResource Label-Italic}" 
+           TargetType="Label">
+        <Setter Property="FontSize" Value="40"/>
+    </Style>
+
+    <Style x:Key="Label-Italic-Size48"
+           BasedOn="{StaticResource Label-Italic}" 
+           TargetType="Label">
+        <Setter Property="FontSize" Value="48"/>
+    </Style>
+
+    <Style x:Key="Label-Medium-Size12"
+           BasedOn="{StaticResource Label-Medium}"
+           TargetType="Label">
+        <Setter Property="FontSize" Value="12"/>
+    </Style>
+
+    <Style x:Key="Label-Medium-Size16"
+           BasedOn="{StaticResource Label-Medium}" 
+           TargetType="Label">
+        <Setter Property="FontSize" Value="16"/>
+    </Style>
+
+    <Style x:Key="Label-Medium-Size20"
+           BasedOn="{StaticResource Label-Medium}" 
+           TargetType="Label">
+        <Setter Property="FontSize" Value="20"/>
+    </Style>
+
+    <Style x:Key="Label-Medium-Size24"
+           BasedOn="{StaticResource Label-Medium}" 
+           TargetType="Label">
+        <Setter Property="FontSize" Value="24"/>
+    </Style>
+
+    <Style x:Key="Label-Medium-Size32"
+           BasedOn="{StaticResource Label-Medium}" 
+           TargetType="Label">
+        <Setter Property="FontSize" Value="32"/>
+    </Style>
+
+    <Style x:Key="Label-Medium-Size40"
+           BasedOn="{StaticResource Label-Medium}" 
+           TargetType="Label">
+        <Setter Property="FontSize" Value="40"/>
+    </Style>
+
+    <Style x:Key="Label-Medium-Size48"
+           BasedOn="{StaticResource Label-Medium}" 
+           TargetType="Label">
+        <Setter Property="FontSize" Value="48"/>
+    </Style>
+
+    <Style x:Key="Label-MediumItalic-Size12"
+           BasedOn="{StaticResource Label-MediumItalic}"
+           TargetType="Label">
+        <Setter Property="FontSize" Value="12"/>
+    </Style>
+
+    <Style x:Key="Label-MediumItalic-Size16"
+           BasedOn="{StaticResource Label-MediumItalic}" 
+           TargetType="Label">
+        <Setter Property="FontSize" Value="16"/>
+    </Style>
+
+    <Style x:Key="Label-MediumItalic-Size20"
+           BasedOn="{StaticResource Label-MediumItalic}" 
+           TargetType="Label">
+        <Setter Property="FontSize" Value="20"/>
+    </Style>
+
+    <Style x:Key="Label-MediumItalic-Size24"
+           BasedOn="{StaticResource Label-MediumItalic}" 
+           TargetType="Label">
+        <Setter Property="FontSize" Value="24"/>
+    </Style>
+
+    <Style x:Key="Label-MediumItalic-Size32"
+           BasedOn="{StaticResource Label-MediumItalic}" 
+           TargetType="Label">
+        <Setter Property="FontSize" Value="32"/>
+    </Style>
+
+    <Style x:Key="Label-MediumItalic-Size40"
+           BasedOn="{StaticResource Label-MediumItalic}" 
+           TargetType="Label">
+        <Setter Property="FontSize" Value="40"/>
+    </Style>
+
+    <Style x:Key="Label-MediumItalic-Size48"
+           BasedOn="{StaticResource Label-MediumItalic}" 
+           TargetType="Label">
+        <Setter Property="FontSize" Value="48"/>
+    </Style>
+
+    <Style x:Key="Label-Bold-Size12"
+           BasedOn="{StaticResource Label-Bold}"
+           TargetType="Label">
+        <Setter Property="FontSize" Value="12"/>
+    </Style>
+
+    <Style x:Key="Label-Bold-Size16"
+           BasedOn="{StaticResource Label-Bold}" 
+           TargetType="Label">
+        <Setter Property="FontSize" Value="16"/>
+    </Style>
+
+    <Style x:Key="Label-Bold-Size20"
+           BasedOn="{StaticResource Label-Bold}" 
+           TargetType="Label">
+        <Setter Property="FontSize" Value="20"/>
+    </Style>
+
+    <Style x:Key="Label-Bold-Size24"
+           BasedOn="{StaticResource Label-Bold}" 
+           TargetType="Label">
+        <Setter Property="FontSize" Value="24"/>
+    </Style>
+
+    <Style x:Key="Label-Bold-Size32"
+           BasedOn="{StaticResource Label-Bold}" 
+           TargetType="Label">
+        <Setter Property="FontSize" Value="32"/>
+    </Style>
+
+    <Style x:Key="Label-Bold-Size40"
+           BasedOn="{StaticResource Label-Bold}" 
+           TargetType="Label">
+        <Setter Property="FontSize" Value="40"/>
+    </Style>
+
+    <Style x:Key="Label-Bold-Size48"
+           BasedOn="{StaticResource Label-Bold}" 
+           TargetType="Label">
+        <Setter Property="FontSize" Value="48"/>
+    </Style>
+
+    <Style x:Key="Label-BoldItalic-Size12"
+           BasedOn="{StaticResource Label-BoldItalic}"
+           TargetType="Label">
+        <Setter Property="FontSize" Value="12"/>
+    </Style>
+
+    <Style x:Key="Label-BoldItalic-Size16"
+           BasedOn="{StaticResource Label-BoldItalic}" 
+           TargetType="Label">
+        <Setter Property="FontSize" Value="16"/>
+    </Style>
+
+    <Style x:Key="Label-BoldItalic-Size20"
+           BasedOn="{StaticResource Label-BoldItalic}" 
+           TargetType="Label">
+        <Setter Property="FontSize" Value="20"/>
+    </Style>
+
+    <Style x:Key="Label-BoldItalic-Size24"
+           BasedOn="{StaticResource Label-BoldItalic}" 
+           TargetType="Label">
+        <Setter Property="FontSize" Value="24"/>
+    </Style>
+
+    <Style x:Key="Label-BoldItalic-Size32"
+           BasedOn="{StaticResource Label-BoldItalic}" 
+           TargetType="Label">
+        <Setter Property="FontSize" Value="32"/>
+    </Style>
+
+    <Style x:Key="Label-BoldItalic-Size40"
+           BasedOn="{StaticResource Label-BoldItalic}" 
+           TargetType="Label">
+        <Setter Property="FontSize" Value="40"/>
+    </Style>
+
+    <Style x:Key="Label-BoldItalic-Size48"
+           BasedOn="{StaticResource Label-BoldItalic}" 
+           TargetType="Label">
+        <Setter Property="FontSize" Value="48"/>
+    </Style>
+
+    <Style x:Key="Entry-Italic" 
+           TargetType="Entry">
+        <Setter Property="FontFamily" Value="Roboto-Italic"/>
+    </Style>
+
+    <Style x:Key="Entry-Medium" 
+           TargetType="Entry">
+        <Setter Property="FontFamily" Value="Roboto-Medium"/>
+    </Style>
+
+    <Style x:Key="Entry-MediumItalic" 
+           TargetType="Entry">
+        <Setter Property="FontFamily" Value="Roboto-MediumItalic"/>
+    </Style>
+
+    <Style x:Key="Entry-Bold" 
+           TargetType="Entry">
+        <Setter Property="FontFamily" Value="Roboto-Bold"/>
+    </Style>
+
+    <Style x:Key="Entry-BoldItalic" 
+           TargetType="Entry">
+        <Setter Property="FontFamily" Value="Roboto-BoldItalic"/>
+    </Style>
+
+    <Style x:Key="Entry-Size12" 
+           TargetType="Entry">
+        <Setter Property="FontSize" Value="12"/>
+    </Style>
+
+    <Style x:Key="Entry-Size16" 
+           TargetType="Entry">
+        <Setter Property="FontSize" Value="16"/>
+    </Style>
+
+    <Style x:Key="Entry-Size20" 
+           TargetType="Entry">
+        <Setter Property="FontSize" Value="20"/>
+    </Style>
+
+    <Style x:Key="Entry-Size24" 
+           TargetType="Entry">
+        <Setter Property="FontSize" Value="24"/>
+    </Style>
+
+    <Style x:Key="Entry-Size32" 
+           TargetType="Entry">
+        <Setter Property="FontSize" Value="32"/>
+    </Style>
+
+    <Style x:Key="Entry-Size40" 
+           TargetType="Entry">
+        <Setter Property="FontSize" Value="40"/>
+    </Style>
+
+    <Style x:Key="Entry-Size48" 
+           TargetType="Entry">
+        <Setter Property="FontSize" Value="48"/>
+    </Style>
+
+    <Style x:Key="Entry-Italic-Size12"
+           BasedOn="{StaticResource Entry-Italic}"
+           TargetType="Entry">
+        <Setter Property="FontSize" Value="12"/>
+    </Style>
+
+    <Style x:Key="Entry-Italic-Size16"
+           BasedOn="{StaticResource Entry-Italic}" 
+           TargetType="Entry">
+        <Setter Property="FontSize" Value="16"/>
+    </Style>
+
+    <Style x:Key="Entry-Italic-Size20"
+           BasedOn="{StaticResource Entry-Italic}" 
+           TargetType="Entry">
+        <Setter Property="FontSize" Value="20"/>
+    </Style>
+
+    <Style x:Key="Entry-Italic-Size24"
+           BasedOn="{StaticResource Entry-Italic}" 
+           TargetType="Entry">
+        <Setter Property="FontSize" Value="24"/>
+    </Style>
+
+    <Style x:Key="Entry-Italic-Size32"
+           BasedOn="{StaticResource Entry-Italic}" 
+           TargetType="Entry">
+        <Setter Property="FontSize" Value="32"/>
+    </Style>
+
+    <Style x:Key="Entry-Italic-Size40"
+           BasedOn="{StaticResource Entry-Italic}" 
+           TargetType="Entry">
+        <Setter Property="FontSize" Value="40"/>
+    </Style>
+
+    <Style x:Key="Entry-Italic-Size48"
+           BasedOn="{StaticResource Entry-Italic}" 
+           TargetType="Entry">
+        <Setter Property="FontSize" Value="48"/>
+    </Style>
+
+    <Style x:Key="Entry-Medium-Size12"
+           BasedOn="{StaticResource Entry-Medium}"
+           TargetType="Entry">
+        <Setter Property="FontSize" Value="12"/>
+    </Style>
+
+    <Style x:Key="Entry-Medium-Size16"
+           BasedOn="{StaticResource Entry-Medium}" 
+           TargetType="Entry">
+        <Setter Property="FontSize" Value="16"/>
+    </Style>
+
+    <Style x:Key="Entry-Medium-Size20"
+           BasedOn="{StaticResource Entry-Medium}" 
+           TargetType="Entry">
+        <Setter Property="FontSize" Value="20"/>
+    </Style>
+
+    <Style x:Key="Entry-Medium-Size24"
+           BasedOn="{StaticResource Entry-Medium}" 
+           TargetType="Entry">
+        <Setter Property="FontSize" Value="24"/>
+    </Style>
+
+    <Style x:Key="Entry-Medium-Size32"
+           BasedOn="{StaticResource Entry-Medium}" 
+           TargetType="Entry">
+        <Setter Property="FontSize" Value="32"/>
+    </Style>
+
+    <Style x:Key="Entry-Medium-Size40"
+           BasedOn="{StaticResource Entry-Medium}" 
+           TargetType="Entry">
+        <Setter Property="FontSize" Value="40"/>
+    </Style>
+
+    <Style x:Key="Entry-Medium-Size48"
+           BasedOn="{StaticResource Entry-Medium}" 
+           TargetType="Entry">
+        <Setter Property="FontSize" Value="48"/>
+    </Style>
+
+    <Style x:Key="Entry-MediumItalic-Size12"
+           BasedOn="{StaticResource Entry-MediumItalic}"
+           TargetType="Entry">
+        <Setter Property="FontSize" Value="12"/>
+    </Style>
+
+    <Style x:Key="Entry-MediumItalic-Size16"
+           BasedOn="{StaticResource Entry-MediumItalic}" 
+           TargetType="Entry">
+        <Setter Property="FontSize" Value="16"/>
+    </Style>
+
+    <Style x:Key="Entry-MediumItalic-Size20"
+           BasedOn="{StaticResource Entry-MediumItalic}" 
+           TargetType="Entry">
+        <Setter Property="FontSize" Value="20"/>
+    </Style>
+
+    <Style x:Key="Entry-MediumItalic-Size24"
+           BasedOn="{StaticResource Entry-MediumItalic}" 
+           TargetType="Entry">
+        <Setter Property="FontSize" Value="24"/>
+    </Style>
+
+    <Style x:Key="Entry-MediumItalic-Size32"
+           BasedOn="{StaticResource Entry-MediumItalic}" 
+           TargetType="Entry">
+        <Setter Property="FontSize" Value="32"/>
+    </Style>
+
+    <Style x:Key="Entry-MediumItalic-Size40"
+           BasedOn="{StaticResource Entry-MediumItalic}" 
+           TargetType="Entry">
+        <Setter Property="FontSize" Value="40"/>
+    </Style>
+
+    <Style x:Key="Entry-MediumItalic-Size48"
+           BasedOn="{StaticResource Entry-MediumItalic}" 
+           TargetType="Entry">
+        <Setter Property="FontSize" Value="48"/>
+    </Style>
+
+    <Style x:Key="Entry-Bold-Size12"
+           BasedOn="{StaticResource Entry-Bold}"
+           TargetType="Entry">
+        <Setter Property="FontSize" Value="12"/>
+    </Style>
+
+    <Style x:Key="Entry-Bold-Size16"
+           BasedOn="{StaticResource Entry-Bold}" 
+           TargetType="Entry">
+        <Setter Property="FontSize" Value="16"/>
+    </Style>
+
+    <Style x:Key="Entry-Bold-Size20"
+           BasedOn="{StaticResource Entry-Bold}" 
+           TargetType="Entry">
+        <Setter Property="FontSize" Value="20"/>
+    </Style>
+
+    <Style x:Key="Entry-Bold-Size24"
+           BasedOn="{StaticResource Entry-Bold}" 
+           TargetType="Entry">
+        <Setter Property="FontSize" Value="24"/>
+    </Style>
+
+    <Style x:Key="Entry-Bold-Size32"
+           BasedOn="{StaticResource Entry-Bold}" 
+           TargetType="Entry">
+        <Setter Property="FontSize" Value="32"/>
+    </Style>
+
+    <Style x:Key="Entry-Bold-Size40"
+           BasedOn="{StaticResource Entry-Bold}" 
+           TargetType="Entry">
+        <Setter Property="FontSize" Value="40"/>
+    </Style>
+
+    <Style x:Key="Entry-Bold-Size48"
+           BasedOn="{StaticResource Entry-Bold}" 
+           TargetType="Entry">
+        <Setter Property="FontSize" Value="48"/>
+    </Style>
+
+    <Style x:Key="Entry-BoldItalic-Size12"
+           BasedOn="{StaticResource Entry-BoldItalic}"
+           TargetType="Entry">
+        <Setter Property="FontSize" Value="12"/>
+    </Style>
+
+    <Style x:Key="Entry-BoldItalic-Size16"
+           BasedOn="{StaticResource Entry-BoldItalic}" 
+           TargetType="Entry">
+        <Setter Property="FontSize" Value="16"/>
+    </Style>
+
+    <Style x:Key="Entry-BoldItalic-Size20"
+           BasedOn="{StaticResource Entry-BoldItalic}" 
+           TargetType="Entry">
+        <Setter Property="FontSize" Value="20"/>
+    </Style>
+
+    <Style x:Key="Entry-BoldItalic-Size24"
+           BasedOn="{StaticResource Entry-BoldItalic}" 
+           TargetType="Entry">
+        <Setter Property="FontSize" Value="24"/>
+    </Style>
+
+    <Style x:Key="Entry-BoldItalic-Size32"
+           BasedOn="{StaticResource Entry-BoldItalic}" 
+           TargetType="Entry">
+        <Setter Property="FontSize" Value="32"/>
+    </Style>
+
+    <Style x:Key="Entry-BoldItalic-Size40"
+           BasedOn="{StaticResource Entry-BoldItalic}" 
+           TargetType="Entry">
+        <Setter Property="FontSize" Value="40"/>
+    </Style>
+
+    <Style x:Key="Entry-BoldItalic-Size48"
+           BasedOn="{StaticResource Entry-BoldItalic}" 
+           TargetType="Entry">
+        <Setter Property="FontSize" Value="48"/>
+    </Style>
+
+    <Style x:Key="Button-Italic" 
+           TargetType="Button">
+        <Setter Property="FontFamily" Value="Roboto-Italic"/>
+    </Style>
+
+    <Style x:Key="Button-Medium" 
+           TargetType="Button">
+        <Setter Property="FontFamily" Value="Roboto-Medium"/>
+    </Style>
+
+    <Style x:Key="Button-MediumItalic" 
+           TargetType="Button">
+        <Setter Property="FontFamily" Value="Roboto-MediumItalic"/>
+    </Style>
+
+    <Style x:Key="Button-Bold" 
+           TargetType="Button">
+        <Setter Property="FontFamily" Value="Roboto-Bold"/>
+    </Style>
+
+    <Style x:Key="Button-BoldItalic" 
+           TargetType="Button">
+        <Setter Property="FontFamily" Value="Roboto-BoldItalic"/>
+    </Style>
+
+    <Style x:Key="Button-Size12" 
+           TargetType="Button">
+        <Setter Property="FontSize" Value="12"/>
+    </Style>
+
+    <Style x:Key="Button-Size16" 
+           TargetType="Button">
+        <Setter Property="FontSize" Value="16"/>
+    </Style>
+
+    <Style x:Key="Button-Size20" 
+           TargetType="Button">
+        <Setter Property="FontSize" Value="20"/>
+    </Style>
+
+    <Style x:Key="Button-Size24" 
+           TargetType="Button">
+        <Setter Property="FontSize" Value="24"/>
+    </Style>
+
+    <Style x:Key="Button-Size32" 
+           TargetType="Button">
+        <Setter Property="FontSize" Value="32"/>
+    </Style>
+
+    <Style x:Key="Button-Size40" 
+           TargetType="Button">
+        <Setter Property="FontSize" Value="40"/>
+    </Style>
+
+    <Style x:Key="Button-Size48" 
+           TargetType="Button">
+        <Setter Property="FontSize" Value="48"/>
+    </Style>
+
+    <Style x:Key="Button-Italic-Size12"
+           BasedOn="{StaticResource Button-Italic}"
+           TargetType="Button">
+        <Setter Property="FontSize" Value="12"/>
+    </Style>
+
+    <Style x:Key="Button-Italic-Size16"
+           BasedOn="{StaticResource Button-Italic}" 
+           TargetType="Button">
+        <Setter Property="FontSize" Value="16"/>
+    </Style>
+
+    <Style x:Key="Button-Italic-Size20"
+           BasedOn="{StaticResource Button-Italic}" 
+           TargetType="Button">
+        <Setter Property="FontSize" Value="20"/>
+    </Style>
+
+    <Style x:Key="Button-Italic-Size24"
+           BasedOn="{StaticResource Button-Italic}" 
+           TargetType="Button">
+        <Setter Property="FontSize" Value="24"/>
+    </Style>
+
+    <Style x:Key="Button-Italic-Size32"
+           BasedOn="{StaticResource Button-Italic}" 
+           TargetType="Button">
+        <Setter Property="FontSize" Value="32"/>
+    </Style>
+
+    <Style x:Key="Button-Italic-Size40"
+           BasedOn="{StaticResource Button-Italic}" 
+           TargetType="Button">
+        <Setter Property="FontSize" Value="40"/>
+    </Style>
+
+    <Style x:Key="Button-Italic-Size48"
+           BasedOn="{StaticResource Button-Italic}" 
+           TargetType="Button">
+        <Setter Property="FontSize" Value="48"/>
+    </Style>
+
+    <Style x:Key="Button-Medium-Size12"
+           BasedOn="{StaticResource Button-Medium}"
+           TargetType="Button">
+        <Setter Property="FontSize" Value="12"/>
+    </Style>
+
+    <Style x:Key="Button-Medium-Size16"
+           BasedOn="{StaticResource Button-Medium}" 
+           TargetType="Button">
+        <Setter Property="FontSize" Value="16"/>
+    </Style>
+
+    <Style x:Key="Button-Medium-Size20"
+           BasedOn="{StaticResource Button-Medium}" 
+           TargetType="Button">
+        <Setter Property="FontSize" Value="20"/>
+    </Style>
+
+    <Style x:Key="Button-Medium-Size24"
+           BasedOn="{StaticResource Button-Medium}" 
+           TargetType="Button">
+        <Setter Property="FontSize" Value="24"/>
+    </Style>
+
+    <Style x:Key="Button-Medium-Size32"
+           BasedOn="{StaticResource Button-Medium}" 
+           TargetType="Button">
+        <Setter Property="FontSize" Value="32"/>
+    </Style>
+
+    <Style x:Key="Button-Medium-Size40"
+           BasedOn="{StaticResource Button-Medium}" 
+           TargetType="Button">
+        <Setter Property="FontSize" Value="40"/>
+    </Style>
+
+    <Style x:Key="Button-Medium-Size48"
+           BasedOn="{StaticResource Button-Medium}" 
+           TargetType="Button">
+        <Setter Property="FontSize" Value="48"/>
+    </Style>
+
+    <Style x:Key="Button-MediumItalic-Size12"
+           BasedOn="{StaticResource Button-MediumItalic}"
+           TargetType="Button">
+        <Setter Property="FontSize" Value="12"/>
+    </Style>
+
+    <Style x:Key="Button-MediumItalic-Size16"
+           BasedOn="{StaticResource Button-MediumItalic}" 
+           TargetType="Button">
+        <Setter Property="FontSize" Value="16"/>
+    </Style>
+
+    <Style x:Key="Button-MediumItalic-Size20"
+           BasedOn="{StaticResource Button-MediumItalic}" 
+           TargetType="Button">
+        <Setter Property="FontSize" Value="20"/>
+    </Style>
+
+    <Style x:Key="Button-MediumItalic-Size24"
+           BasedOn="{StaticResource Button-MediumItalic}" 
+           TargetType="Button">
+        <Setter Property="FontSize" Value="24"/>
+    </Style>
+
+    <Style x:Key="Button-MediumItalic-Size32"
+           BasedOn="{StaticResource Button-MediumItalic}" 
+           TargetType="Button">
+        <Setter Property="FontSize" Value="32"/>
+    </Style>
+
+    <Style x:Key="Button-MediumItalic-Size40"
+           BasedOn="{StaticResource Button-MediumItalic}" 
+           TargetType="Button">
+        <Setter Property="FontSize" Value="40"/>
+    </Style>
+
+    <Style x:Key="Button-MediumItalic-Size48"
+           BasedOn="{StaticResource Button-MediumItalic}" 
+           TargetType="Button">
+        <Setter Property="FontSize" Value="48"/>
+    </Style>
+
+    <Style x:Key="Button-Bold-Size12"
+           BasedOn="{StaticResource Button-Bold}"
+           TargetType="Button">
+        <Setter Property="FontSize" Value="12"/>
+    </Style>
+
+    <Style x:Key="Button-Bold-Size16"
+           BasedOn="{StaticResource Button-Bold}" 
+           TargetType="Button">
+        <Setter Property="FontSize" Value="16"/>
+    </Style>
+
+    <Style x:Key="Button-Bold-Size20"
+           BasedOn="{StaticResource Button-Bold}" 
+           TargetType="Button">
+        <Setter Property="FontSize" Value="20"/>
+    </Style>
+
+    <Style x:Key="Button-Bold-Size24"
+           BasedOn="{StaticResource Button-Bold}" 
+           TargetType="Button">
+        <Setter Property="FontSize" Value="24"/>
+    </Style>
+
+    <Style x:Key="Button-Bold-Size32"
+           BasedOn="{StaticResource Button-Bold}" 
+           TargetType="Button">
+        <Setter Property="FontSize" Value="32"/>
+    </Style>
+
+    <Style x:Key="Button-Bold-Size40"
+           BasedOn="{StaticResource Button-Bold}" 
+           TargetType="Button">
+        <Setter Property="FontSize" Value="40"/>
+    </Style>
+
+    <Style x:Key="Button-Bold-Size48"
+           BasedOn="{StaticResource Button-Bold}" 
+           TargetType="Button">
+        <Setter Property="FontSize" Value="48"/>
+    </Style>
+
+    <Style x:Key="Button-BoldItalic-Size12"
+           BasedOn="{StaticResource Button-BoldItalic}"
+           TargetType="Button">
+        <Setter Property="FontSize" Value="12"/>
+    </Style>
+
+    <Style x:Key="Button-BoldItalic-Size16"
+           BasedOn="{StaticResource Button-BoldItalic}" 
+           TargetType="Button">
+        <Setter Property="FontSize" Value="16"/>
+    </Style>
+
+    <Style x:Key="Button-BoldItalic-Size20"
+           BasedOn="{StaticResource Button-BoldItalic}" 
+           TargetType="Button">
+        <Setter Property="FontSize" Value="20"/>
+    </Style>
+
+    <Style x:Key="Button-BoldItalic-Size24"
+           BasedOn="{StaticResource Button-BoldItalic}" 
+           TargetType="Button">
+        <Setter Property="FontSize" Value="24"/>
+    </Style>
+
+    <Style x:Key="Button-BoldItalic-Size32"
+           BasedOn="{StaticResource Button-BoldItalic}" 
+           TargetType="Button">
+        <Setter Property="FontSize" Value="32"/>
+    </Style>
+
+    <Style x:Key="Button-BoldItalic-Size40"
+           BasedOn="{StaticResource Button-BoldItalic}" 
+           TargetType="Button">
+        <Setter Property="FontSize" Value="40"/>
+    </Style>
+
+    <Style x:Key="Button-BoldItalic-Size48"
+           BasedOn="{StaticResource Button-BoldItalic}" 
+           TargetType="Button">
+        <Setter Property="FontSize" Value="48"/>
+    </Style>
+
+    <Style x:Key="ButtonGray-Italic" 
+           BasedOn="{StaticResource ButtonGray}"
+           TargetType="Button">
+        <Setter Property="FontFamily" Value="Roboto-Italic"/>
+    </Style>
+
+    <Style x:Key="ButtonGray-Medium" 
+           BasedOn="{StaticResource ButtonGray}"
+           TargetType="Button">
+        <Setter Property="FontFamily" Value="Roboto-Medium"/>
+    </Style>
+
+    <Style x:Key="ButtonGray-MediumItalic" 
+           BasedOn="{StaticResource ButtonGray}"
+           TargetType="Button">
+        <Setter Property="FontFamily" Value="Roboto-MediumItalic"/>
+    </Style>
+
+    <Style x:Key="ButtonGray-Bold" 
+           BasedOn="{StaticResource ButtonGray}"
+           TargetType="Button">
+        <Setter Property="FontFamily" Value="Roboto-Bold"/>
+    </Style>
+
+    <Style x:Key="ButtonGray-BoldItalic" 
+           BasedOn="{StaticResource ButtonGray}"
+           TargetType="Button">
+        <Setter Property="FontFamily" Value="Roboto-BoldItalic"/>
+    </Style>
+
+    <Style x:Key="ButtonGray-Size12" 
+           BasedOn="{StaticResource ButtonGray}"
+           TargetType="Button">
+        <Setter Property="FontSize" Value="12"/>
+    </Style>
+
+    <Style x:Key="ButtonGray-Size16" 
+           BasedOn="{StaticResource ButtonGray}"
+           TargetType="Button">
+        <Setter Property="FontSize" Value="16"/>
+    </Style>
+
+    <Style x:Key="ButtonGray-Size20" 
+           BasedOn="{StaticResource ButtonGray}"
+           TargetType="Button">
+        <Setter Property="FontSize" Value="20"/>
+    </Style>
+
+    <Style x:Key="ButtonGray-Size24" 
+           BasedOn="{StaticResource ButtonGray}"
+           TargetType="Button">
+        <Setter Property="FontSize" Value="24"/>
+    </Style>
+
+    <Style x:Key="ButtonGray-Size32" 
+           BasedOn="{StaticResource ButtonGray}"
+           TargetType="Button">
+        <Setter Property="FontSize" Value="32"/>
+    </Style>
+
+    <Style x:Key="ButtonGray-Size40" 
+           BasedOn="{StaticResource ButtonGray}"
+           TargetType="Button">
+        <Setter Property="FontSize" Value="40"/>
+    </Style>
+
+    <Style x:Key="ButtonGray-Size48" 
+           BasedOn="{StaticResource ButtonGray}"
+           TargetType="Button">
+        <Setter Property="FontSize" Value="48"/>
+    </Style>
+
+    <Style x:Key="ButtonGray-Italic-Size12"
+           BasedOn="{StaticResource ButtonGray-Italic}"
+           TargetType="Button">
+        <Setter Property="FontSize" Value="12"/>
+    </Style>
+
+    <Style x:Key="ButtonGray-Italic-Size16"
+           BasedOn="{StaticResource ButtonGray-Italic}" 
+           TargetType="Button">
+        <Setter Property="FontSize" Value="16"/>
+    </Style>
+
+    <Style x:Key="ButtonGray-Italic-Size20"
+           BasedOn="{StaticResource ButtonGray-Italic}" 
+           TargetType="Button">
+        <Setter Property="FontSize" Value="20"/>
+    </Style>
+
+    <Style x:Key="ButtonGray-Italic-Size24"
+           BasedOn="{StaticResource ButtonGray-Italic}" 
+           TargetType="Button">
+        <Setter Property="FontSize" Value="24"/>
+    </Style>
+
+    <Style x:Key="ButtonGray-Italic-Size32"
+           BasedOn="{StaticResource ButtonGray-Italic}" 
+           TargetType="Button">
+        <Setter Property="FontSize" Value="32"/>
+    </Style>
+
+    <Style x:Key="ButtonGray-Italic-Size40"
+           BasedOn="{StaticResource ButtonGray-Italic}" 
+           TargetType="Button">
+        <Setter Property="FontSize" Value="40"/>
+    </Style>
+
+    <Style x:Key="ButtonGray-Italic-Size48"
+           BasedOn="{StaticResource ButtonGray-Italic}" 
+           TargetType="Button">
+        <Setter Property="FontSize" Value="48"/>
+    </Style>
+
+    <Style x:Key="ButtonGray-Medium-Size12"
+           BasedOn="{StaticResource ButtonGray-Medium}"
+           TargetType="Button">
+        <Setter Property="FontSize" Value="12"/>
+    </Style>
+
+    <Style x:Key="ButtonGray-Medium-Size16"
+           BasedOn="{StaticResource ButtonGray-Medium}" 
+           TargetType="Button">
+        <Setter Property="FontSize" Value="16"/>
+    </Style>
+
+    <Style x:Key="ButtonGray-Medium-Size20"
+           BasedOn="{StaticResource ButtonGray-Medium}" 
+           TargetType="Button">
+        <Setter Property="FontSize" Value="20"/>
+    </Style>
+
+    <Style x:Key="ButtonGray-Medium-Size24"
+           BasedOn="{StaticResource ButtonGray-Medium}" 
+           TargetType="Button">
+        <Setter Property="FontSize" Value="24"/>
+    </Style>
+
+    <Style x:Key="ButtonGray-Medium-Size32"
+           BasedOn="{StaticResource ButtonGray-Medium}" 
+           TargetType="Button">
+        <Setter Property="FontSize" Value="32"/>
+    </Style>
+
+    <Style x:Key="ButtonGray-Medium-Size40"
+           BasedOn="{StaticResource ButtonGray-Medium}" 
+           TargetType="Button">
+        <Setter Property="FontSize" Value="40"/>
+    </Style>
+
+    <Style x:Key="ButtonGray-Medium-Size48"
+           BasedOn="{StaticResource ButtonGray-Medium}" 
+           TargetType="Button">
+        <Setter Property="FontSize" Value="48"/>
+    </Style>
+
+    <Style x:Key="ButtonGray-MediumItalic-Size12"
+           BasedOn="{StaticResource ButtonGray-MediumItalic}"
+           TargetType="Button">
+        <Setter Property="FontSize" Value="12"/>
+    </Style>
+
+    <Style x:Key="ButtonGray-MediumItalic-Size16"
+           BasedOn="{StaticResource ButtonGray-MediumItalic}" 
+           TargetType="Button">
+        <Setter Property="FontSize" Value="16"/>
+    </Style>
+
+    <Style x:Key="ButtonGray-MediumItalic-Size20"
+           BasedOn="{StaticResource ButtonGray-MediumItalic}" 
+           TargetType="Button">
+        <Setter Property="FontSize" Value="20"/>
+    </Style>
+
+    <Style x:Key="ButtonGray-MediumItalic-Size24"
+           BasedOn="{StaticResource ButtonGray-MediumItalic}" 
+           TargetType="Button">
+        <Setter Property="FontSize" Value="24"/>
+    </Style>
+
+    <Style x:Key="ButtonGray-MediumItalic-Size32"
+           BasedOn="{StaticResource ButtonGray-MediumItalic}" 
+           TargetType="Button">
+        <Setter Property="FontSize" Value="32"/>
+    </Style>
+
+    <Style x:Key="ButtonGray-MediumItalic-Size40"
+           BasedOn="{StaticResource ButtonGray-MediumItalic}" 
+           TargetType="Button">
+        <Setter Property="FontSize" Value="40"/>
+    </Style>
+
+    <Style x:Key="ButtonGray-MediumItalic-Size48"
+           BasedOn="{StaticResource ButtonGray-MediumItalic}" 
+           TargetType="Button">
+        <Setter Property="FontSize" Value="48"/>
+    </Style>
+
+    <Style x:Key="ButtonGray-Bold-Size12"
+           BasedOn="{StaticResource ButtonGray-Bold}"
+           TargetType="Button">
+        <Setter Property="FontSize" Value="12"/>
+    </Style>
+
+    <Style x:Key="ButtonGray-Bold-Size16"
+           BasedOn="{StaticResource ButtonGray-Bold}" 
+           TargetType="Button">
+        <Setter Property="FontSize" Value="16"/>
+    </Style>
+
+    <Style x:Key="ButtonGray-Bold-Size20"
+           BasedOn="{StaticResource ButtonGray-Bold}" 
+           TargetType="Button">
+        <Setter Property="FontSize" Value="20"/>
+    </Style>
+
+    <Style x:Key="ButtonGray-Bold-Size24"
+           BasedOn="{StaticResource ButtonGray-Bold}" 
+           TargetType="Button">
+        <Setter Property="FontSize" Value="24"/>
+    </Style>
+
+    <Style x:Key="ButtonGray-Bold-Size32"
+           BasedOn="{StaticResource ButtonGray-Bold}" 
+           TargetType="Button">
+        <Setter Property="FontSize" Value="32"/>
+    </Style>
+
+    <Style x:Key="ButtonGray-Bold-Size40"
+           BasedOn="{StaticResource ButtonGray-Bold}" 
+           TargetType="Button">
+        <Setter Property="FontSize" Value="40"/>
+    </Style>
+
+    <Style x:Key="ButtonGray-Bold-Size48"
+           BasedOn="{StaticResource ButtonGray-Bold}" 
+           TargetType="Button">
+        <Setter Property="FontSize" Value="48"/>
+    </Style>
+
+    <Style x:Key="ButtonGray-BoldItalic-Size12"
+           BasedOn="{StaticResource ButtonGray-BoldItalic}"
+           TargetType="Button">
+        <Setter Property="FontSize" Value="12"/>
+    </Style>
+
+    <Style x:Key="ButtonGray-BoldItalic-Size16"
+           BasedOn="{StaticResource ButtonGray-BoldItalic}" 
+           TargetType="Button">
+        <Setter Property="FontSize" Value="16"/>
+    </Style>
+
+    <Style x:Key="ButtonGray-BoldItalic-Size20"
+           BasedOn="{StaticResource ButtonGray-BoldItalic}" 
+           TargetType="Button">
+        <Setter Property="FontSize" Value="20"/>
+    </Style>
+
+    <Style x:Key="ButtonGray-BoldItalic-Size24"
+           BasedOn="{StaticResource ButtonGray-BoldItalic}" 
+           TargetType="Button">
+        <Setter Property="FontSize" Value="24"/>
+    </Style>
+
+    <Style x:Key="ButtonGray-BoldItalic-Size32"
+           BasedOn="{StaticResource ButtonGray-BoldItalic}" 
+           TargetType="Button">
+        <Setter Property="FontSize" Value="32"/>
+    </Style>
+
+    <Style x:Key="ButtonGray-BoldItalic-Size40"
+           BasedOn="{StaticResource ButtonGray-BoldItalic}" 
+           TargetType="Button">
+        <Setter Property="FontSize" Value="40"/>
+    </Style>
+
+    <Style x:Key="ButtonGray-BoldItalic-Size48"
+           BasedOn="{StaticResource ButtonGray-BoldItalic}" 
+           TargetType="Button">
+        <Setter Property="FontSize" Value="48"/>
+    </Style>
+</ResourceDictionary>

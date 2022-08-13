@@ -1,0 +1,44 @@
+<controls:BaseContentView xmlns="http://xamarin.com/schemas/2014/forms"
+		                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+ 		                  xmlns:controls="clr-namespace:Sample.Core.Controls"
+		                  xmlns:converters="clr-namespace:Sample.Core.Framework.Converters"
+		                  x:Class="Sample.Core.Controls.SortAndFilterBar"
+		                  x:Name="this"
+		                  BackgroundColor="Transparent">
+	<ContentView.Resources>
+		<Style TargetType="Picker">
+			<Setter Property="Title" Value="{Binding SelectLabel, Source={x:Reference this}}"/>
+			<Setter Property="TitleColor" Value="Black"/>
+		</Style>
+	</ContentView.Resources>
+
+	<StackLayout Orientation="Horizontal"
+	             Spacing="8"
+	             Padding="8"
+	             BackgroundColor="Transparent"
+	             HorizontalOptions="End">
+		<Label Text="{Binding SortLabel, Source={x:Reference this}}"
+		       Style="{StaticResource Label-Medium}"/>
+		
+		<!-- Sort picker -->
+		<Picker ItemsSource="{Binding SortOptions, Source={x:Reference this}}"
+		        ItemDisplayBinding="{Binding .DisplayString}"
+		        SelectedItem="{Binding SortSelection, Source={x:Reference this}}"/>
+		
+		<Button Text="{Binding SortDirectionLabel, Source={x:Reference this}}"
+		        CornerRadius="16"
+		        HorizontalOptions="Start"
+		        IsVisible="{Binding SortSelection, 
+							        Converter={converters:IsNotNullOrEmptyOrZeroConverter}, 
+							        Source={x:Reference this}}"
+		        Clicked="SortButtonClicked"/>
+		
+		<Label Text="{Binding FilterLabel, Source={x:Reference this}}"
+		       Style="{StaticResource Label-Medium}"/>
+		
+		<!-- Filter picker -->
+		<Picker ItemsSource="{Binding FilterOptions, Source={x:Reference this}}"
+		        ItemDisplayBinding="{Binding .DisplayString}"
+		        SelectedItem="{Binding FilterSelection, Source={x:Reference this}}"/>
+	</StackLayout>
+</controls:BaseContentView>

@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<views:MvxContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      xmlns:controls="clr-namespace:Sample.Core.Controls"
+                      xmlns:viewModels="clr-namespace:Sample.Core.ViewModels"
+                      xmlns:views="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms"
+                      x:Class="Sample.Core.Views.StoreItemDetailPage"
+                      x:DataType="viewModels:StoreItemDetailViewModel"
+                      x:TypeArguments="viewModels:StoreItemDetailViewModel">
+    
+    
+        <StackLayout>
+            <controls:NavBar Title="{Binding Title}"
+                             HasShadow="False"
+                             NavigationState="Close"
+                             NavigationCommand="{Binding BackCommand}"/>
+            
+            <Image Source="{Binding Item.Image}"
+                   Margin="16"/>
+            
+            <StackLayout Orientation="Horizontal"
+                         VerticalOptions="Start"
+                         Margin="24">
+                <StackLayout>
+                    <Label Text="{Binding Item.Name}"
+                           Style="{StaticResource Label-Medium-Size20}"/>
+
+                    <Label Text="{Binding Item.Description}"/>
+                </StackLayout>
+
+                <Label Text="{Binding Item.Price, StringFormat='{0:C2}'}"
+                       Style="{StaticResource Label-Medium-Size20}"/>
+            </StackLayout>
+        </StackLayout>
+</views:MvxContentPage>

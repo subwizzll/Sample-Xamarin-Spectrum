@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<views:MvxContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      xmlns:controls="clr-namespace:Sample.Core.Controls"
+                      xmlns:effects="clr-namespace:Sample.Core.Framework.Effects"
+                      xmlns:viewModels="clr-namespace:Sample.Core.ViewModels"
+                      xmlns:views="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms"
+                      xmlns:taxCalcStore="clr-namespace:Sample.Core.Models.TaxCalcStore"
+                      x:Class="Sample.Core.Views.MyCartPage"
+                      x:DataType="viewModels:MyCartViewModel"
+                      x:TypeArguments="viewModels:MyCartViewModel">
+    
+    <ContentPage.Resources>
+        <Style TargetType="controls:CartItemView">
+            <Setter Property="Margin" Value="16"/>
+            <Setter Property="UpdateCartCommand" Value="{Binding UpdateCartCommand,
+                                                                 Source={RelativeSource AncestorType={x:Type viewModels:MyCartViewModel}}}"/>
+            <Setter Property="RemoveFromCartCommand" Value="{Binding RemoveFromCartCommand,
+                                                                     Source={RelativeSource AncestorType={x:Type viewModels:MyCartViewModel}}}"/>
+        </Style>
+        <Style x:Key="CheckoutButtonStyle"
+               TargetType="Button">
+            <Setter Property="IsEnabled" Value="False"/>
+            <Setter Property="IsVisible" Value="False"/>
+            <Style.Triggers>
+                <MultiTrigger TargetType="Button">
+                    <MultiTrigger.Conditions>
+                        <BindingCondition Binding="{Binding ToAddressViewModel.IsEditMode}"
+                                          Value="False" />
+                        <BindingCondition Binding="{Binding FromAddressViewModel.IsEditMode}"
+                                          Value="False" />
+                    </MultiTrigger.Conditions>
+                    <Setter Property="IsEnabled" Value="True" />
+                    <Setter Property="IsVisible" Value="True" />
+                </MultiTrigger>
+            </Style.Triggers>
+        </Style>
+        <DataTemplate x:Key="NormalTemplate"
+                      x:DataType="taxCalcStore:LineItemDetail">
+            <StackLayout>
+                <controls:CartItemView ItemDetail="{Binding .}"/>
+                <BoxView Margin="8,0"/>
+            </StackLayout>
+        </DataTemplate>
+        
+        <DataTemplate x:Key="LastItemTemplate"
+                      x:DataType="taxCalcStore:LineItemDetail">
+            <StackLayout>
+                <controls:CartItemView ItemDetail="{Binding .}"/>
+            </StackLayout>
+        </DataTemplate>
+        
+        <DataTemplate x:Key="EmptyTemplate">
+            <StackLayout>
+                <Label Text="{Binding EmptyCartLabel, 
+                                      Source={RelativeSource AncestorType={x:Type viewModels:MyCartViewModel}}}"
+                       HorizontalOptions="Center"
+                       Margin="24"/>
+            </StackLayout>
+        </DataTemplate>
+        
+        <viewModels:MyCartTemplateSelector x:Key="MyCartTemplateSelector"
+                                           NormalTemplate="{StaticResource NormalTemplate}"
+                                           LastItemTemplate="{StaticResource LastItemTemplate}"/>
+    </ContentPage.Resources>
+    
+    <ContentPage.Content>
+        <StackLayout>
+            <controls:NavBar Title="{Binding [Title]}"
+                             NavigationState="Back"
+                             NavigationCommand="{Binding BackCommand}"/>
+            
+            <StackLayout HeightRequest="0">
+                <ScrollView>
+                    <CollectionView ItemsSource="{Binding Cart.LineItems}"
+                                    ItemTemplate="{StaticResource MyCartTemplateSelector}"
+                                    EmptyViewTemplate="{StaticResource EmptyTemplate}"
+                                    EmptyView=""/>
+                </ScrollView>
+                <controls:BaseFrame effects:SafeAreaInsetEffect.InsetType="Bottom"
+                                    IsVisible="{Binding ShowAddressView}"
+                                    BindingContext="{Binding .}">
+                    <controls:BaseFrame.Effects>
+                        <effects:SafeAreaInsetEffect/>
+                    </controls:BaseFrame.Effects>
+                
+                    <StackLayout Spacing="8">
+                        <controls:AddressView BindingContext="{Binding ToAddressViewModel}"/>
+                    
+                        <BoxView/>
+                    
+                        <controls:AddressView BindingContext="{Binding FromAddressViewModel}"/>
+                    
+                        <Button Text="{Binding CheckoutButton}"
+                                Command="{Binding CheckoutCommand}"
+                                HorizontalOptions="FillAndExpand"
+                                Style="{StaticResource CheckoutButtonStyle}"/>
+                    </StackLayout>
+                </controls:BaseFrame>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</views:MvxContentPage>
